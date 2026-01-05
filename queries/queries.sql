@@ -95,10 +95,9 @@ LIMIT 5;
 SELECT codigo, nombre
 FROM fabricante
 LIMIT 2 OFFSET 3;
-
 -- 18. Llista el nom i el preu del producte més barat. (Utilitza solament les clàusules ORDER BY i LIMIT).
-SELECT nombre, precio
-FROM producto	
+SELECT nombre, precio 
+FROM producto
 ORDER BY precio ASC
 LIMIT 1;
 
