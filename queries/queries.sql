@@ -110,7 +110,7 @@ SELECT nombre
 SELECT 
 	p.nombre,
 	p.precio,
-	f.nombre
+	f.nombre AS 'nombre del fabricante'
 FROM producto p
 JOIN fabricante f
 	ON p.codigo_fabricante = f.codigo;
@@ -119,7 +119,7 @@ JOIN fabricante f
 SELECT 
 	p.nombre,
 	p.precio,
-	f.nombre
+	f.nombre AS 'nombre del fabricante'
 FROM producto p
 JOIN fabricante f
 	ON p.codigo_fabricante = f.codigo
@@ -134,7 +134,7 @@ SELECT
 	f.nombre
 FROM producto p
 JOIN fabricante f
-	ON p.codigo_fabricante = f.codigo
+	ON p.codigo_fabricante = f.codigo;
 
 -- 24. Retorna el nom, el preu i el nom del fabricant (fabricante), del producte més barat.
 SELECT 
@@ -144,7 +144,7 @@ SELECT
 FROM producto p
 JOIN fabricante f
 	ON p.codigo_fabricante = f.codigo
-ORDER BY precio
+ORDER BY precio ASC
 LIMIT 1;
 
 -- 25. Retorna el nom del producte, el preu i el nom del seu fabricant (fabricante), del producte més car.
