@@ -226,18 +226,8 @@ SELECT
 FROM producto p
 JOIN fabricante f
 	ON p.codigo_fabricante = f.codigo
-WHERE p.precio >= 180
-ORDER BY precio;
-
--- SELECT 
---	p.nombre,
---	p.precio,
---    f.nombre
--- FROM producto p
--- JOIN fabricante f
---	ON p.codigo_fabricante = f.codigo
--- WHERE p.precio >= 180
--- ORDER BY precio DESC;
+HAVING p.precio >= 180
+ORDER BY precio DESC;
 
 -- 33. Retorna un llistat amb el codi i el nom de fabricant (fabricante), solament d'aquells fabricants que tenen productes associats en la base de dades.
 SELECT DISTINCT 
@@ -248,15 +238,14 @@ JOIN producto p ON f.codigo = p.codigo_fabricante;
 
 -- 34. Retorna un llistat de tots els fabricants que existeixen en la base de dades, juntament amb els productes que té cadascun d'ells. Inclou també els fabricants que no tenen cap producte. Mostra el nom del fabricant (fabricante) i el nom del producte (producto).
 SELECT  
-    f.codigo, 
-    f.nombre,
-    p.nombre
+    f.nombre AS fabricante,
+    p.nombre AS producto
 FROM fabricante f
 LEFT JOIN producto p ON f.codigo = p.codigo_fabricante;
 
 -- 35. Retorna un llistat on només apareguin els noms dels fabricants (fabricante) que no tenen cap producte associat.
 SELECT  
-    f.nombre
+    f.nombre AS fabricante
 FROM fabricante f
 LEFT JOIN producto p ON f.codigo = p.codigo_fabricante
 WHERE p.codigo_fabricante IS NULL;
@@ -266,7 +255,7 @@ SELECT
 	p.codigo, 
 	p.nombre,
     f.nombre,
-    f.codigo
+    f.codigo AS codigo_fabricante
 FROM fabricante f
 JOIN producto p ON f.codigo = p.codigo_fabricante
 WHERE f.nombre = 'lenovo';
