@@ -129,7 +129,6 @@ ORDER BY f.nombre;
 SELECT 
 	p.codigo,
 	p.nombre,
-	p.precio,
     p.codigo_fabricante AS 'codigo fabricante',
 	f.nombre AS 'nombre fabricante'
 FROM producto p
@@ -254,7 +253,7 @@ WHERE p.codigo_fabricante IS NULL;
 SELECT  
 	p.codigo, 
 	p.nombre,
-    f.nombre,
+    p.precio,
     f.codigo AS codigo_fabricante
 FROM fabricante f
 JOIN producto p ON f.codigo = p.codigo_fabricante
@@ -297,7 +296,7 @@ WHERE precio >= (SELECT MAX(p.precio)
       AND f.nombre = 'Lenovo');
 
 -- 41. Llista tots els productes del fabricant Asus que tenen un preu superior al preu mitjà de tots els seus productes.
-SELECT *
+SELECT p.codigo, p.nombre, p.precio, f.codigo AS codigo_fabricante
 FROM producto p
 JOIN fabricante f 
 ON p.codigo_fabricante = f.codigo
@@ -308,3 +307,4 @@ WHERE f.nombre = 'Asus'
     JOIN fabricante f ON p.codigo_fabricante = f.codigo
     WHERE f.nombre = 'Asus'
 );
+
