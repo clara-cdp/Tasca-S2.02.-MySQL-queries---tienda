@@ -130,8 +130,8 @@ SELECT
 	p.codigo,
 	p.nombre,
 	p.precio,
-    p.codigo_fabricante,
-	f.nombre
+    p.codigo_fabricante AS 'codigo fabricante',
+	f.nombre AS 'nombre fabricante'
 FROM producto p
 JOIN fabricante f
 	ON p.codigo_fabricante = f.codigo;
@@ -140,7 +140,7 @@ JOIN fabricante f
 SELECT 
 	p.nombre,
 	p.precio,
-	f.nombre
+	f.nombre AS fabricant
 FROM producto p
 JOIN fabricante f
 	ON p.codigo_fabricante = f.codigo
@@ -151,7 +151,7 @@ LIMIT 1;
 SELECT 
 	p.nombre,
 	p.precio,
-	f.nombre
+	f.nombre AS fabricante
 FROM producto p
 JOIN fabricante f
 	ON p.codigo_fabricante = f.codigo
@@ -180,7 +180,7 @@ WHERE f.nombre = 'crucial' AND precio > 200;
 SELECT 
 	p.nombre,
 	p.precio,
-    f.nombre
+    f.nombre AS fabricante
 FROM producto p
 JOIN fabricante f
 	ON p.codigo_fabricante = f.codigo
@@ -192,7 +192,7 @@ WHERE f.nombre = 'Asus'
 SELECT 
 	p.nombre,
 	p.precio,
-    f.nombre
+    f.nombre AS fabricante
 FROM producto p
 JOIN fabricante f
 	ON p.codigo_fabricante = f.codigo
@@ -202,7 +202,7 @@ WHERE f.nombre IN('Asus', 'Hewlett-Packard', 'seagate');
 SELECT 
 	p.nombre,
 	p.precio,
-    f.nombre
+    f.nombre AS fabricante
 FROM producto p
 JOIN fabricante f
 	ON p.codigo_fabricante = f.codigo
@@ -212,7 +212,7 @@ WHERE f.nombre REGEXP 'e$';
 SELECT 
 	p.nombre,
 	p.precio,
-    f.nombre
+    f.nombre AS fabricante
 FROM producto p
 JOIN fabricante f
 	ON p.codigo_fabricante = f.codigo
@@ -222,22 +222,22 @@ WHERE f.nombre REGEXP 'w';
 SELECT 
 	p.nombre,
 	p.precio,
-    f.nombre
+    f.nombre AS fabricante
 FROM producto p
 JOIN fabricante f
 	ON p.codigo_fabricante = f.codigo
 WHERE p.precio >= 180
 ORDER BY precio;
 
-SELECT 
-	p.nombre,
-	p.precio,
-    f.nombre
-FROM producto p
-JOIN fabricante f
-	ON p.codigo_fabricante = f.codigo
-WHERE p.precio >= 180
-ORDER BY precio DESC;
+-- SELECT 
+--	p.nombre,
+--	p.precio,
+--    f.nombre
+-- FROM producto p
+-- JOIN fabricante f
+--	ON p.codigo_fabricante = f.codigo
+-- WHERE p.precio >= 180
+-- ORDER BY precio DESC;
 
 -- 33. Retorna un llistat amb el codi i el nom de fabricant (fabricante), solament d'aquells fabricants que tenen productes associats en la base de dades.
 SELECT DISTINCT 
